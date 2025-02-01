@@ -109,7 +109,7 @@ export const updateProfile = async (req,res) =>{
                 message:"Something is missing",
                 success:false
             });
-         };
+        };
 
          // cloudinary comes here
 
@@ -145,7 +145,7 @@ export const updateProfile = async (req,res) =>{
         }
 
         return res.status(200).json({
-            message:"Profile udpated successfully.",
+            message:"Profile updated successfully.",
             user,
             success:true
         })
