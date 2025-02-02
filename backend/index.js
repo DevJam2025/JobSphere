@@ -1,3 +1,5 @@
+/*SETTING UP THE SERVER*/ 
+
 import express from "express";
 import cookieParser from "cookie-parser";
 import cors from "cors";
@@ -6,6 +8,7 @@ import connectDB from "./utils/db.js";
 dotenv.config({});
 const app=express();
 
+// Setting up a basic API 
 app.get("/home",(req,res)=>{
     return res.status(200).json({
         message: "I am from backend",
@@ -19,7 +22,7 @@ app.use(express.urlencoded({extended:true}));
 app.use(cookieParser());
 const corsOptions={
     origin:"http://localhost:5173",
-    Credential:true,
+    Credentials:true,
 }
 app.use(cors(corsOptions));
 
