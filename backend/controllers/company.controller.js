@@ -1,34 +1,46 @@
-import {Company} from "../models.company.model.js";
+import Company from "../models/company.model.js";
 
-export const registerCompany = async (req,res) => {
+
+export const registerCompany = async (req, res) => {
     try {
-        const {companyName} = req.body;
-        if(!companyName){
+        const { companyName } = req.body;
+
+        if (!companyName) {
             return res.status(400).json({
-                message:"Company name is required.",
-                success:false
+                message: "Company name is required.",
+                success: false
             });
         }
-        let company = await company.findOne({name:companyName});
-        if(company){
+
+        // Correct model usage
+        let existingCompany = await Company.findOne({ name: companyName }); // Renamed variable
+        if (existingCompany) {
             return res.status(400).json({
-                message:"You can't register same company.",
-                success:false
-            })
-        };
-        company = await Company.create({
-            name:companyName,
-            userId:req.id
+                message: "You can't register the same company.",
+                success: false
+            });
+        }
+
+        // Create new company
+        const newCompany = await Company.create({
+            name: companyName,
+            userId: req.id
         });
+
         return res.status(201).json({
-            message:"Company registered successfully.",
-            company,
-            success:true
-        })
+            message: "Company registered successfully.",
+            company: newCompany,
+            success: true
+        });
     } catch (error) {
         console.log(error);
+        return res.status(500).json({
+            message: "Something went wrong. Please try again later.",
+            success: false
+        });
     }
-}
+};
+
 export const getCompany = async (req,res) =>{
     try {
         const userId = req.id; //logged in user id
