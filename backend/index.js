@@ -1,10 +1,11 @@
 import express from "express";
 import cookieParser from "cookie-parser";
 import cors from "cors";
-import dotenv from "dotenv";
 import connectDB from "./utils/db.js";
 import userRoute from "./routes/user.routes.js";
-dotenv.config({});
+import dotenv from "dotenv";
+dotenv.config();
+
 const app=express();
 
 app.get("/home",(req,res)=>{
