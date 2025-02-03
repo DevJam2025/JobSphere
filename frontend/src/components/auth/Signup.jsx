@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 
 function Signup() {
   const [fullname, setFullname] = useState('');
@@ -11,23 +12,12 @@ function Signup() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const formData = { fullname, email, phoneNumber, password, role };
     
-    // Prepare the form data
-    const formData = {
-      fullname,
-      email,
-      phoneNumber,
-      password,
-      role,
-    };
-
-    // Make the API call to your backend for signup
     try {
       const response = await fetch('http://localhost:8000/api/v1/user/register', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
       });
       const data = await response.json();
@@ -46,62 +36,34 @@ function Signup() {
   };
 
   return (
-    <div className="w-full min-h-screen bg-gray-100">
-      <div className="p-5 bg-cover bg-center" style={{ backgroundImage: 'url(https://img.freepik.com/free-vector/technology-wire-mesh-network-connection-digital-background_1017-28407.jpg?t=st=1738566306~exp=1738569906~hmac=64ce19e2955a0dadbf8696526286efa02b11c4fc2c20786a6c5d041d1a756f48&w=1060)', height: '300px' }}></div>
+    <div className="w-full min-h-screen flex items-center justify-center relative overflow-hidden">
+      {/* Animated Gradient Background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-600 via-pink-200 to-gray-550 animate-gradient" />
+      
+      {/* Glassmorphic Signup Card */}
+      <motion.div 
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        className="relative bg-white/10 backdrop-blur-lg shadow-lg p-8 rounded-xl max-w-lg w-full border border-white/20"
+      >
+        <h2 className="text-2xl font-bold text-black text-center mb-6">Create an Account</h2>
+        {errorMessage && <div className="text-red-400 text-center mb-4">{errorMessage}</div>}
+        {successMessage && <div className="text-green-400 text-center mb-4">{successMessage}</div>}
 
-      <div className="max-w-lg mx-auto bg-white p-8 shadow-lg mt-[-100px] rounded-lg backdrop-blur-md">
-        <h2 className="text-2xl font-bold text-center mb-5">Sign up now</h2>
-
-        {errorMessage && <div className="text-red-500 mb-4">{errorMessage}</div>}
-        {successMessage && <div className="text-green-500 mb-4">{successMessage}</div>}
-
-        <form onSubmit={handleSubmit}>
-          <div className="grid grid-cols-2 gap-4">
-            <input
-              className="p-2 border rounded"
-              type="text"
-              placeholder="Full name"
-              value={fullname}
-              onChange={(e) => setFullname(e.target.value)}
-            />
-            <input
-              className="p-2 border rounded"
-              type="email"
-              placeholder="Email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-          </div>
-
-          <input
-            className="w-full p-2 border rounded mt-4"
-            type="text"
-            placeholder="Phone number"
-            value={phoneNumber}
-            onChange={(e) => setPhoneNumber(e.target.value)}
-          />
-          <input
-            className="w-full p-2 border rounded mt-4"
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-
-<select
-  className="w-full p-2 border rounded mt-4"
-  value={role}
-  onChange={(e) => setRole(e.target.value)}
->
-  <option value="">Select Role</option>
-  <option value="student">student</option>
-  <option value="recruiter">recruiter</option>
-</select>
-
-
-          <button type="submit" className="w-full bg-blue-600 text-white p-2 rounded mt-4">Sign up</button>
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <input className="w-full p-3 bg-black/20 text-gray rounded-lg border border-white/30 placeholder-white-400 focus:outline-none focus:ring-2 focus:ring-black-800" type="text" placeholder="Full Name" value={fullname} onChange={(e) => setFullname(e.target.value)} required />
+          <input className="w-full p-3 bg-black/20 text-gray rounded-lg border border-white/30 placeholder-white-400 focus:outline-none focus:ring-2 focus:ring-black-800" type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+          <input className="w-full p-3 bg-black/20 text-gray rounded-lg border border-white/30 placeholder-white-400 focus:outline-none focus:ring-2 focus:ring-black-800" type="text" placeholder="Phone Number" value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} required />
+          <input className="w-full p-3 bg-black/20 text-gray rounded-lg border border-white/30 placeholder-white-400 focus:outline-none focus:ring-2 focus:ring-black-800" type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+          <select className="w-full p-3 bg-black/20 text-gray rounded-lg border border-white/30 placeholder-white-300 focus:outline-none focus:ring-2 focus:ring-black-800" value={role} onChange={(e) => setRole(e.target.value)} required>
+            <option value="" >Select Role</option>
+            <option value="student" >Student</option>
+            <option value="recruiter" >Recruiter</option>
+          </select>
+          <button type="submit" className="w-full p-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition duration-300">Sign Up</button>
         </form>
-      </div>
+      </motion.div>
     </div>
   );
 }
