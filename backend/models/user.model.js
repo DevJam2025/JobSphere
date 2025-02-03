@@ -1,3 +1,4 @@
+
 import mongoose from "mongoose";
 const userSchema=new mongoose.Schema({
     fullname:{
@@ -24,7 +25,7 @@ const userSchema=new mongoose.Schema({
     },
     profile:{
         bio:{type:String},
-        skills:{type:String},
+        skills:[{type:String}],
         resume:{type:String}, //url to resume file
         resumeOriginalName:{type:String},
         company:{type:mongoose.Schema.Types.ObjectId,ref:'Company'},
