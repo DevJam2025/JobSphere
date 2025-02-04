@@ -14,7 +14,10 @@ const applicationSchema = new mongoose.Schema({
     status:{
         type:String,
         enum:['pending', 'accepted', 'rejected'],
-        default:'pending'
+        default:'pending',
     }
-},{timestamps:true});
+},{ timestamps: true });
+
+// Add indexing to ensure unique applications for the same job by the same user
+applicationSchema.index({ job: 1, applicant: 1 }, { unique: true });
 export const Application  = mongoose.model("Application", applicationSchema);
