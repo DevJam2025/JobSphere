@@ -27,7 +27,6 @@ function Login() {
 
       if (response.ok) {
         alert(`Login successful! Welcome back, ${data.user.fullname}.`);
-        // Optionally, redirect the user to another page after successful login
       } else {
         alert(`Login failed: ${data.message}`);
       }
