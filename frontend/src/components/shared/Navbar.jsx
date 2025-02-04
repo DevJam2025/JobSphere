@@ -32,15 +32,41 @@ const Navbar = () => {
                         <FiUserPlus size={24} /> Signup
                     </Link>
 
-                    <div className='relative'>
-                        <button onClick={() => setIsOpen(!isOpen)} className='flex items-center gap-3 px-4 py-2 bg-white text-blue-600 rounded-full shadow-lg hover:bg-gray-100 transition-all duration-300'>
+                    <div className="relative">
+                        {/* Profile Button */}
+                        <button
+                            onClick={() => setIsOpen(!isOpen)}
+                            className="flex items-center gap-3 px-4 py-2 bg-white text-blue-600 rounded-full shadow-lg hover:bg-gray-100 transition-all duration-300"
+                        >
                             <FiUser size={24} /> Profile
                         </button>
+
+                        {/* Dropdown Menu */}
                         {isOpen && (
-                            <div className='absolute right-0 mt-3 w-48 bg-white rounded-lg shadow-lg py-3 text-gray-700'>
-                                <Link to='/profile' className='flex items-center gap-3 px-4 py-2 hover:bg-gray-200 transition-all'><FiUser size={20} /> View Profile</Link>
-                                <Link to='/settings' className='flex items-center gap-3 px-4 py-2 hover:bg-gray-200 transition-all'><FiSettings size={20} /> Settings</Link>
-                                <button className='w-full flex items-center gap-3 px-4 py-2 hover:bg-gray-200 transition-all text-left'>
+                            <div className="absolute right-0 mt-3 w-48 bg-white rounded-lg shadow-lg py-3 text-gray-700">
+                                {/* View Profile */}
+                                <Link
+                                    to="/profile"
+                                    className="flex items-center gap-3 px-4 py-2 hover:bg-gray-200 transition-all"
+                                    onClick={() => setIsOpen(false)}
+                                >
+                                    <FiUser size={20} /> View Profile
+                                </Link>
+
+                                {/* Settings */}
+                                <Link
+                                    to="/settings"
+                                    className="flex items-center gap-3 px-4 py-2 hover:bg-gray-200 transition-all"
+                                    onClick={() => setIsOpen(false)}
+                                >
+                                    <FiSettings size={20} /> Settings
+                                </Link>
+
+                                {/* Logout */}
+                                <button
+                                    className="w-full flex items-center gap-3 px-4 py-2 hover:bg-gray-200 transition-all text-left"
+                                    onClick={() => alert("Logging out...")}
+                                >
                                     <FiLogOut size={20} /> Logout
                                 </button>
                             </div>

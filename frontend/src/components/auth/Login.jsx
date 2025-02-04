@@ -1,14 +1,25 @@
+
+
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 import { motion } from "framer-motion";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [role, setRole] = useState("");
+  const navigate = useNavigate(); // Initialize useNavigate
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    alert("Login submitted!");
+
+    // Simulate login (Replace this with your authentication logic)
+    if (email && password && role) {
+      alert("Login successful!");
+      navigate("/home"); // Redirect to home page
+    } else {
+      alert("Please fill in all fields.");
+    }
   };
 
   return (
