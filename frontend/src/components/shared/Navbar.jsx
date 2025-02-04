@@ -6,9 +6,9 @@ const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <nav className='bg-gradient-to-r from-pink-400 to-purple-700 shadow-2xl py-5 sticky top-0 z-20'>
-            <div className='container mx-auto flex justify-between items-center h-20 px-8 md:px-16'>
-                <h1 className='text-5xl font-extrabold text-white tracking-wider drop-shadow-lg'>
+        <nav className='bg-gradient-to-r from-pink-400 to-purple-700 shadow-2xl py-5 sticky top-0 z-10 p-2'>
+            <div className='container mx-auto flex justify-between items-center h-8 px-8 md:px-16'>
+                <h1 className='text-4xl font-extrabold text-white tracking-wider drop-shadow-lg'>
                     Job<span className='text-yellow-300'>Sphere</span>
                 </h1>
 
