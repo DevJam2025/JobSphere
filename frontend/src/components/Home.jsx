@@ -29,7 +29,6 @@ const Facts = () => {
 const Home = () => {
   return (
     <><div className="relative h-screen w-full">
-      <div className="absolute inset-0 bg-black/50 bg-[url('images\mnn.jpg')] w-full bg-cover"></div>
       
       <div className="absolute inset-0 flex flex-col justify-center items-center text-center px-4">
         <p className="text-black-300 text-lg font-semibold">Connect. Grow. Succeed.</p>
@@ -55,12 +54,10 @@ const Home = () => {
       </div>
 
       {/* Navigation Buttons */}
-      <button className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-blue-600 text-white p-3 rounded-full">
         &#9664;
       </button>
       <button className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-blue-600 text-white p-3 rounded-full">
         &#9654;
-      </button>
     </div>
     
       <Facts /></>
