@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom"; // Import useNavigate
 import { motion } from "framer-motion";
 
 const Login = () => {
+  //Stores email, password, and role.
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [role, setRole] = useState("");
@@ -11,14 +12,15 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Simulate login (Replace this with your authentication logic)
-    if (email && password && role) {
-      alert("Login successful!");
-      navigate("/home"); // Redirect to home page
-    } else {
-      alert("Please fill in all fields.");
+    if(email && password && role){
+      alert("Login Successfully!");
+      navigate("/home");
+    }else{
+      alert("Please fill in aa fields");
     }
+    
   };
+  
 
   return (
     <div className="relative flex items-center justify-center min-h-screen overflow-hidden">

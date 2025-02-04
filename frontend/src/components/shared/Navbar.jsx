@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FiHome, FiBriefcase, FiSearch, FiLogIn, FiUserPlus, FiUser, FiSettings, FiLogOut } from 'react-icons/fi';
+import { FiHome, FiBriefcase, FiSearch, FiLogIn, FiPhone , FiUserPlus, FiUser, FiSettings, FiLogOut } from 'react-icons/fi';
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -13,14 +13,17 @@ const Navbar = () => {
                 </h1>
 
                 <ul className='flex space-x-12 text-white font-semibold text-lg'>
-                    <li className='flex items-center gap-3 px-4 py-2 rounded-lg hover:text-gray-600 hover:text-gray-900 transition-all duration-300 transform hover:scale-110 cursor-pointer'>
-                        <FiHome size={24} /> <Link to='/'>Home</Link>
+                    <li className='flex items-center gap-3 px-4 py-2 rounded-lg hover:text-gray-600 transition-all duration-300 transform hover:scale-110 cursor-pointer'>
+                        <FiHome size={24} /> <Link to='/home'>Home</Link>
                     </li>
-                    <li className='flex items-center gap-3 px-4 py-2 rounded-lg hover:text-gray-600 hover:text-gray-900 transition-all duration-300 transform hover:scale-110 cursor-pointer'>
+                    <li className='flex items-center gap-3 px-4 py-2 rounded-lg hover:text-gray-600  transition-all duration-300 transform hover:scale-110 cursor-pointer'>
                         <FiBriefcase size={24} /> <Link to='/jobs'>Jobs</Link>
                     </li>
-                    <li className='flex items-center gap-3 px-4 py-2 rounded-lg hover:text-gray-600 hover:text-gray-900 transition-all duration-300 transform hover:scale-110 cursor-pointer'>
+                    <li className='flex items-center gap-3 px-4 py-2 rounded-lg hover:text-gray-600 transition-all duration-300 transform hover:scale-110 cursor-pointer'>
                         <FiSearch size={24} /> <Link to='/browse'>Browse</Link>
+                    </li>
+                    <li className='flex items-center gap-3 px-4 py-2 rounded-lg hover:text-gray-600 transition-all duration-300 transform hover:scale-110 cursor-pointer'>
+                        <FiPhone size={24} /> <Link to='/contact'>Contact</Link>
                     </li>
                 </ul>
 
