@@ -1,45 +1,40 @@
-# Node.js dependencies
+<<<<<<< HEAD
+# Node modules
 node_modules/
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-package-lock.json
-.pnpm-debug.log*
-
+/node_modules
+.env
 # Logs
 logs
 *.log
-logs/
-debug.log
-error.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
-# Editor and OS files
+# Dependency directories
+/pnpm-lock.yaml
+/.pnp
+.pnp.js
+
+# Build output
+/dist
+/build
+
+# Miscellaneous
 .DS_Store
-Thumbs.db
-.vscode/
-.idea/
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
-
-# Environment Variables
 .env
 .env.local
-.env.development
-.env.production
-.env.test
+.env.development.local
+.env.test.local
+.env.production.local
+.vscode/
+.idea/
 
-# Build files
-dist/
-build/
-out/
-
-# Cache and temp files
-.cache/
-.temp/
-*.tmp
-
-# OneDrive Sync Conflict Files (since you're using OneDrive)
-*.tmp.dr
+# Operating system files
+Thumbs.db
+ehthumbs.db
+=======
+node_modules/
+package-lock.json
+.env
+npm-debug.log*
+>>>>>>> 74d6175e6f3df7de764122ac92bf40b66085e892
