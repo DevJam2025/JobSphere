@@ -1,8 +1,8 @@
-<<<<<<< HEAD
 # Node modules
 node_modules/
-/node_modules
+package-lock.json
 .env
+npm-debug.log*
 # Logs
 logs
 *.log
@@ -32,9 +32,8 @@ yarn-error.log*
 # Operating system files
 Thumbs.db
 ehthumbs.db
-=======
+
 node_modules/
 package-lock.json
 .env
 npm-debug.log*
->>>>>>> 74d6175e6f3df7de764122ac92bf40b66085e892
