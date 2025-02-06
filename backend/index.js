@@ -1,41 +1,50 @@
-/*SETTING UP THE SERVER*/ 
-
 import express from "express";
 import cookieParser from "cookie-parser";
 import cors from "cors";
 import connectDB from "./utils/db.js";
-import userRoute from "./routes/user.routes.js";
+import setupRoutes from "./routes/index.js";
 import dotenv from "dotenv";
 dotenv.config();
 
-const app=express();
+const app = express();
 
-app.use(cors({
-    origin: 'http://localhost:5173', // Allow requests only from the frontend's domain
+app.use(
+  cors({
+    origin: process.env.CLIENT_URL || 'http://localhost:5173',
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization'],
-    credentials:true
-  }));
+    credentials: true,
+  })
+);
 
-// Setting up a basic API 
-app.get("/home",(req,res)=>{
-    return res.status(200).json({
-        message: "I am from backend",
-        success:true,
-    })
-})
-
-//middleware
+// Middleware
 app.use(express.json());
-app.use(express.urlencoded({extended:true}));
+app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
+
+// Health check route
+app.get("/health", (req, res) => {
+  return res.status(200).json({
+    message: "Server is healthy and running!",
+    success: true,
+  });
+});
+
+// Setting up routes
+setupRoutes(app);
 
 const PORT = process.env.PORT || 3000;
 
-//api's
-app.use("/api/v1/user",userRoute);
+app.listen(PORT, () => {
+  connectDB();
+  console.log(`Server running at port ${PORT}`);
+});
 
-app.listen(PORT, ()=>{
-    connectDB();
-    console.log(`Server running at port ${PORT}`);
-})
+// Global error handling middleware
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).json({
+    message: "An unexpected error occurred.",
+    success: false,
+  });
+});

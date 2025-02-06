@@ -1,9 +1,11 @@
-import { User } from "../models/user.model.js";
+import User from "../models/user.model.js";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 
 export const register = async (req, res) => {
   // logic for user regisster
+  console.log('Request body:', req.body); // Log the request body
+
   try {
     const { fullname, email, phoneNumber, password, role } = req.body;
     if (!fullname || !email || !phoneNumber || !password || !role) {
@@ -12,7 +14,7 @@ export const register = async (req, res) => {
         success: false,
       });
     }
-    const use = await User.findOne({ email });
+    const user = await User.findOne({ email });
     if (user) {
       return res.status(400).json({
         message: "User already exist with this email.",
@@ -31,23 +33,29 @@ export const register = async (req, res) => {
       message: "Account created succesfully.",
       success: true,
     });
-  } catch (e) {
-    console.log(e);
+  } catch (error) {
+    console.error("Error during registration:", error); // Log the full error
+    return res.status(500).json({
+      message: "An unexpected error occurred.",
+      success: false,
+      error: error.message,
+    });
   }
+  
 };
 export const login = async (req, res) => {
   // logic for user login
   try {
     const { email, password, role } = req.body;
-    if (!fullname || !email || !phoneNumber || !password || !role) {
+    if (!email || !password || !role) {
       return res.status(400).json({
-        message: "Something is missing!",
+        message: "Email, password, and role are required.",
         success: false,
       });
     }
     let user = await User.findOne({ email });
     if (!user) {
-      return res.statuss(400).json({
+      return res.status(400).json({
         message: "Incorrect email or password.",
         success: false,
       });
@@ -83,17 +91,23 @@ export const login = async (req, res) => {
     return res
       .status(200)
       .cookie("token", token, {
-        maxAge: 1 * 24 * 60 * 60 * 1000,
-        httpsOnly: true,
-        samesite: "strict",
+        maxAge: 24 * 60 * 60 * 1000, // 1 day
+        httpOnly: true,
+        secure: process.env.NODE_ENV === "production",
+        sameSite: "strict",
       })
       .json({
         message: `Welcome back ${user.fullname}`,
         success: true,
       });
-  } catch (e) {
-    console.log(e);
+  } catch (error) {
+    return res.status(500).json({
+      message: "An unexpected error occurred.",
+      success: false,
+      error: error.message,
+    });
   }
+  
 };
 export const logout = async (req, res) => {
   // logic for loging out
@@ -102,9 +116,14 @@ export const logout = async (req, res) => {
       message: "logged out succesfully.",
       success: true,
     });
-  } catch (e) {
-    console.log(e);
+  } catch (error) {
+    return res.status(500).json({
+      message: "An unexpected error occurred.",
+      success: false,
+      error: error.message,
+    });
   }
+  
 };
 export const updateProfile = async (req, res) => {
   try {
@@ -150,7 +169,12 @@ export const updateProfile = async (req, res) => {
         user,
         success: true,
     });
-  } catch (e) {
-    console.log(e);
+  } catch (error) {
+    return res.status(500).json({
+      message: "An unexpected error occurred.",
+      success: false,
+      error: error.message,
+    });
   }
+  
 };

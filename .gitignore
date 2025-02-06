@@ -1,0 +1,93 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules/
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Node.js
+node_modules/
+package-lock.json
+.env
+npm-debug.log*
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.env
+*.env.json
+
+# Django
+db.sqlite3
+/media/
+
+# React & Build Files
+build/
+dist/
+.eslintcache
+coverage/
+.vscode/
+.idea/
+.DS_Store
+
+# Logs and Debugging
+logs
+*.log
+yarn-error.log
+npm-debug.log*
+
+# OS/System Files
+Thumbs.db
+.DS_Store
+
+# IDE & Editor Files
+.vscode/
+.idea/
+*.swp
+
+# Git and CI
+.git/
+.gitignore
+.gitmodules
+
+# Test Reports
+coverage/
+junit-report.xml
+
+# Sensitive Configuration Files
+.env
+*.key
+*.crt
+
+# AI Model and Dataset Files
+models/
+*.h5
+*.pkl
+datasets/
+.ipynb_checkpoints/
+
+# Build Artifacts
+*.out
+*.exe
+*.dll
+*.o
