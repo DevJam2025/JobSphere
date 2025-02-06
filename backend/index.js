@@ -15,7 +15,7 @@ app.use(cors({
     credentials:true
   }));
 
-app.get("/home",(req,res)=>{
+app.get("/Home",(req,res)=>{
     return res.status(200).json({
         message: "I am from backend",
         success:true,

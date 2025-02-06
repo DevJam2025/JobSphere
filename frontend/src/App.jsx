@@ -3,7 +3,12 @@ import './App.css';
 import Navbar from './components/shared/Navbar';
 import Signup from './components/auth/Signup';
 import Login from './components/auth/Login';
-import Home from './components/home';
+import Home from './components/Home';
+
+import 'bootstrap-icons/font/bootstrap-icons.css';
+import '@fortawesome/fontawesome-free/css/all.min.css';
+import './index.css';
+
 
 function App() {
   return (
