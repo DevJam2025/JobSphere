@@ -1,9 +1,11 @@
-import { User } from "../models/user.models.js";
+import User from "../models/user.model.js";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 
 export const register = async (req, res) => {
   // logic for user regisster
+  console.log('Request body:', req.body); // Log the request body
+
   try {
     const { fullname, email, phoneNumber, password, role } = req.body;
     if (!fullname || !email || !phoneNumber || !password || !role) {
@@ -12,7 +14,7 @@ export const register = async (req, res) => {
         success: false,
       });
     }
-    const use = await User.findOne({ email });
+    const user = await User.findOne({ email });
     if (user) {
       return res.status(400).json({
         message: "User already exist with this email.",
@@ -32,6 +34,7 @@ export const register = async (req, res) => {
       success: true,
     });
   } catch (error) {
+    console.error("Error during registration:", error); // Log the full error
     return res.status(500).json({
       message: "An unexpected error occurred.",
       success: false,
