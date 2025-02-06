@@ -7,7 +7,7 @@ import Navbar from './components/shared/Navbar';
 import Signup from './components/auth/Signup';
 import Login from './components/auth/Login';
 import Browse from './components/Browse';
-import Home from './components/home';
+import Home from './components/Home';
 import Profile from './components/profile';
 import Contact from './components/contact';
 function App() {
@@ -17,7 +17,7 @@ function App() {
       <Navbar />
       <div className="flex-grow">
       <Routes>
-      <Route path="/home" element={<Home/>} />
+      <Route path="/" element={<Home/>} />
       <Route path="/jobs" element={<h1>Jobs Page</h1>} />
         <Route path="/browse" element={<Browse/>} />
         <Route path="/signup" element={<Signup />} />

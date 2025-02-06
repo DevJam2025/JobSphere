@@ -54,7 +54,10 @@ const Home = () => {
       </div>
 
       {/* Navigation Buttons */}
-        
+      
+      
+      
+      
     </div>
     
       <Facts /></>
