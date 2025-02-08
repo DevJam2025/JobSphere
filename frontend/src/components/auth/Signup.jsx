@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-
+import { useNavigate } from 'react-router-dom';
 function Signup() {
   const [fullname, setFullname] = useState('');
   const [email, setEmail] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
   const [password, setPassword] = useState('');
   const [role, setRole] = useState('');
+  const navigate=useNavigate();
   const [errorMessage, setErrorMessage] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
 
@@ -28,6 +29,9 @@ function Signup() {
       if (response.ok) {
         setSuccessMessage(data.message);
         setErrorMessage('');
+        setTimeout(()=>{
+          navigate("/login");
+        },2000);
       } else {
         
         setErrorMessage(data.message);

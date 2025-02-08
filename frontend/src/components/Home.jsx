@@ -1,5 +1,5 @@
 import React from "react";
-
+import Navbar from "./shared/Navbar";
 import { useNavigate } from "react-router-dom";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
@@ -79,6 +79,7 @@ const Facts = () => {
   return (
     <div className="bg-gradient-to-r from-gray-400 to-yellow-200 py-10">
       <div className="container mx-auto">
+        
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
           {stats.map((stat, index) => (
             <div key={index} className={'wow fadeIn'} data-wow-delay={stat.delay}>
@@ -205,6 +206,7 @@ const Services = () => {
 const Home = () => {
   return (
     <>
+    <Navbar/>
        <Carousel/>
        <CarouselComponent/>
       <Facts />

@@ -1,14 +1,17 @@
 import { FiPhone, FiMail, FiLinkedin, FiGithub, FiTwitter } from "react-icons/fi";
-
+import pushkarImg from "../images/pushkar.png";
+import deepikaImg from "../images/deepika.jpg";
+import himaniImg from "../images/himani.jpg";
+import venuakImg from "../images/venuka.png";
 
 const contacts = [
   {
     id: 1,
     name: "Himani Goyal",
     role: "Founder & CEO",
-    email: "alex@example.com",
-    phone: "+1 234 567 8901",
-    image: "https://randomuser.me/api/portraits/men/45.jpg",
+    email: "himani764@gmail.com",
+    phone: "7678266951",
+    image: himaniImg,
     linkedin: "https://linkedin.com/in/alexjohnson",
     twitter: "https://twitter.com/alexjohnson",
     github: "https://github.com/alexjohnson",
@@ -17,9 +20,9 @@ const contacts = [
     id: 2,
     name: "Deepika Agrawal",
     role: "Head of HR",
-    email: "sophia@example.com",
-    phone: "+1 234 567 8902",
-    image: "https://randomuser.me/api/portraits/women/44.jpg",
+    email: "agrdeepika25@gmail.com",
+    phone: "8839396823",
+    image: deepikaImg,
     linkedin: "https://linkedin.com/in/sophiawilliams",
     twitter: "https://twitter.com/sophiawilliams",
     github: "https://github.com/sophiawilliams",
@@ -28,9 +31,9 @@ const contacts = [
     id: 3,
     name: "Venuka Dewangan",
     role: "Lead Developer",
-    email: "michael@example.com",
-    phone: "+1 234 567 8903",
-    image: "https://randomuser.me/api/portraits/men/46.jpg",
+    email: "dewanganvenu20@gmail.com",
+    phone: "6265094888",
+    image: venuakImg,
     linkedin: "https://linkedin.com/in/michaelsmith",
     twitter: "https://twitter.com/michaelsmith",
     github: "https://github.com/michaelsmith",
@@ -39,9 +42,9 @@ const contacts = [
     id: 4,
     name: "Pushkar Shinde",
     role: "Marketing Manager",
-    email: "emma@example.com",
-    phone: "+1 234 567 8904",
-    image: "https://randomuser.me/api/portraits/women/45.jpg",
+    email: "pushkarshinde@gmail.com",
+    phone: "9356665641",
+    image: pushkarImg,
     linkedin: "https://linkedin.com/in/emmabrown",
     twitter: "https://twitter.com/emmabrown",
     github: "https://github.com/emmabrown",

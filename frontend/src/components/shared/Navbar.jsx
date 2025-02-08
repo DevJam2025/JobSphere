@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FiHome, FiBriefcase, FiSearch, FiLogIn, FiPhone , FiUserPlus, FiUser, FiSettings, FiLogOut } from 'react-icons/fi';
-
+import useLogout from '../auth/Logout';
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
-
+    const logout = useLogout();
     return (
         <nav className='bg-gradient-to-r from-pink-400 to-purple-700 shadow-2xl py-5 sticky top-0 z-10 p-2'>
             <div className='container mx-auto flex justify-between items-center h-8 px-8 md:px-16'>
@@ -28,12 +28,12 @@ const Navbar = () => {
                 </ul>
 
                 <div className='flex items-center space-x-6 relative'>
-                    <Link to='/login' className='flex items-center gap-3 px-6 py-3 border border-white rounded-full text-white bg-opacity-50 backdrop-blur-md hover:bg-white hover:text-blue-600 transition-all duration-300 transform hover:scale-105 shadow-xl'>
+                    {/* <Link to='/login' className='flex items-center gap-3 px-6 py-3 border border-white rounded-full text-white bg-opacity-50 backdrop-blur-md hover:bg-white hover:text-blue-600 transition-all duration-300 transform hover:scale-105 shadow-xl'>
                         <FiLogIn size={24} /> Login
                     </Link>
                     <Link to='/signup' className='flex items-center gap-3 px-6 py-3 bg-yellow-300 text-gray-900 font-bold rounded-full hover:bg-yellow-400 transition-all duration-300 transform hover:scale-105 shadow-xl'>
                         <FiUserPlus size={24} /> Signup
-                    </Link>
+                    </Link> */}
 
                     <div className="relative">
                         {/* Profile Button */}
@@ -68,7 +68,10 @@ const Navbar = () => {
                                 {/* Logout */}
                                 <button
                                     className="w-full flex items-center gap-3 px-4 py-2 hover:bg-gray-200 transition-all text-left"
-                                    onClick={() => alert("Logging out...")}
+                                    onClick={()=>{
+                                      setIsOpen(false);
+                                      logout();
+                                    }}
                                 >
                                     <FiLogOut size={20} /> Logout
                                 </button>

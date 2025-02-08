@@ -85,3 +85,37 @@ const Profile = () => {
 };
 
 export default Profile;
+
+// // ProfilePage.js
+// import React, { useState } from 'react';
+// import UserProfile from './UserProfile';
+// import EditProfile from './EditProfile';
+
+// const ProfilePage = () => {
+//   const [isEditing, setIsEditing] = useState(false);
+//   const [user, setUser] = useState(null);
+
+//   const handleEditClick = () => {
+//     setIsEditing(true);
+//   };
+
+//   const handleUpdate = (updatedUser) => {
+//     setUser(updatedUser);
+//     setIsEditing(false);
+//   };
+
+//   return (
+//     <div>
+//       {isEditing ? (
+//         <EditProfile user={user} onUpdate={handleUpdate} />
+//       ) : (
+//         <>
+//           <UserProfile user={user} />
+//           <button onClick={handleEditClick}>Edit Profile</button>
+//         </>
+//       )}
+//     </div>
+//   );
+// };
+
+// export default ProfilePage;
